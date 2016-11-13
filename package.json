@@ -4,11 +4,21 @@
   "description": "Notes in electron",
   "main": "index.js",
   "scripts": {
-    "test": "xo"
+    "pack": "build --dir",
+    "dist": "build"
   },
   "repository": {
-    "type": "git",
-    "url": "git+https://github.com/willyb321/electron-notes.git"
+    "url": "https://github.com/willyb321/electron-notes",
+    "type": "git"
+  },
+  "devDependencies": {
+    "electron": "^1.4.6",
+    "electron-builder": "8.5.3",
+    "xo": "^0.17.1"
+  },
+  "dependencies": {
+    "line-by-line": "^0.1.5",
+    "tableify": "^1.0.0"
   },
   "keywords": [
     "notes",
@@ -20,5 +30,36 @@
   "bugs": {
     "url": "https://github.com/willyb321/electron-notes/issues"
   },
-  "homepage": "https://github.com/willyb321/electron-notes#readme"
+  "homepage": "https://github.com/willyb321/electron-notes#readme",
+  "build": {
+    "appId": "com.willyb321.electron-notes"
+  },
+  "mac": {
+    "target": [
+      "dmg"
+    ],
+    "dmg": {
+      "contents": [
+        {
+          "x": 110,
+          "y": 150
+        },
+        {
+          "x": 240,
+          "y": 150,
+          "type": "link",
+          "path": "/Applications"
+        }
+      ]
+    },
+    "linux": {
+      "target": [
+        "deb"
+      ]
+    }
+  },
+  "category": "public.app-category.reference",
+  "publish": [
+    "github"
+  ]
 }
